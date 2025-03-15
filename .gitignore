@@ -86,7 +86,9 @@ app/views/static/css/*.min.css
 # Cleanup commands
 rm -rf __pycache__/
 rm -rf .pytest_cache/
-rm -rf .vscode/
+rm -rf .vscode/ 
 rm -rf .idea/
 rm -f .DS_Store
-rm -f Thumbs.db 
+rm -f Thumbs.db
+rm -f *.db
+rm -f *.sqlite 
