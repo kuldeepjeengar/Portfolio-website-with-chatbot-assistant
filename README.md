@@ -33,7 +33,7 @@ If you want to run this project locally:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/kuldeepjeengar/portfolio.git
+   git clone https://github.com/kuldeepjeengar/Portfolio-website-with-chatbot-assistant.git
    cd portfolio
    ```
 
