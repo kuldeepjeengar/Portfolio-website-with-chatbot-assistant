@@ -1,0 +1,384 @@
+<div class="kuldeep-chatbot">
+    <div class="kuldeep-chatbot-window" id="chatWindow">
+        <div class="kuldeep-chatbot-header">
+            <div class="kuldeep-chatbot-title">
+                <i class="fas fa-robot"></i>
+                <span>AI Assistant</span>
+            </div>
+            <button id="closeChat" class="kuldeep-close-btn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="kuldeep-chatbot-messages" id="chatMessages">
+            <!-- Messages will appear here -->
+        </div>
+        <div class="kuldeep-chatbot-input">
+            <input type="text" id="userInput" placeholder="Ask about Kuldeep's skills...">
+            <button id="sendBtn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+    
+    <button class="kuldeep-chat-button" id="chatButton">
+        <i class="fas fa-robot"></i>
+        <span class="kuldeep-chat-tooltip">Want to know more about Kuldeep Jeengar?</span>
+    </button>
+</div>
+
+<style>
+/* Self-contained styles to avoid conflicts - Black & White Theme */
+.kuldeep-chatbot {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.kuldeep-chat-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #000000;
+    color: white;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    transition: transform 0.3s;
+}
+
+.kuldeep-chat-button:hover {
+    transform: scale(1.1);
+    background: #333333;
+}
+
+.kuldeep-chat-tooltip {
+    position: absolute;
+    top: -45px;
+    right: -30px;
+    background: #000000;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+}
+
+.kuldeep-chat-button:hover .kuldeep-chat-tooltip {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.kuldeep-chatbot-window {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 350px;
+    height: 500px;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 9998;
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+    transform-origin: bottom right;
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+}
+
+.kuldeep-chatbot-window.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.kuldeep-chatbot-header {
+    background: #000000;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.kuldeep-chatbot-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.kuldeep-close-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.kuldeep-close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.kuldeep-chatbot-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.kuldeep-message {
+    display: flex;
+    gap: 10px;
+    max-width: 80%;
+}
+
+.kuldeep-message.bot {
+    align-self: flex-start;
+}
+
+.kuldeep-message.user {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.kuldeep-message-avatar {
+    width: 35px;
+    height: 35px;
+    background: #f5f5f5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.kuldeep-message.bot .kuldeep-message-avatar {
+    color: #333333;
+}
+
+.kuldeep-message.user .kuldeep-message-avatar {
+    color: white;
+    background: #000000;
+}
+
+.kuldeep-message-content {
+    background: #f5f5f5;
+    padding: 12px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333333;
+}
+
+.kuldeep-message.user .kuldeep-message-content {
+    background: #000000;
+    color: white;
+}
+
+.kuldeep-chatbot-input {
+    padding: 15px;
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.kuldeep-chatbot-input input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 30px;
+    outline: none;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.kuldeep-chatbot-input input:focus {
+    border-color: #000000;
+}
+
+.kuldeep-chatbot-input button {
+    width: 40px;
+    height: 40px;
+    background: #000000;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.kuldeep-chatbot-input button:hover {
+    background: #333333;
+}
+
+.kuldeep-typing {
+    display: flex;
+    gap: 5px;
+    padding: 12px 15px;
+    background: #f5f5f5;
+    border-radius: 15px;
+    align-self: flex-start;
+    margin-left: 45px;
+}
+
+.kuldeep-typing span {
+    width: 8px;
+    height: 8px;
+    background: #333333;
+    border-radius: 50%;
+    display: inline-block;
+    animation: typing 1s infinite;
+}
+
+@keyframes typing {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.kuldeep-typing span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.kuldeep-typing span:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.kuldeep-typing span:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@media (max-width: 480px) {
+    .kuldeep-chatbot-window {
+        width: 85%;
+        right: 7.5%;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const chatButton = document.getElementById('chatButton');
+    const chatWindow = document.getElementById('chatWindow');
+    const closeChat = document.getElementById('closeChat');
+    const userInput = document.getElementById('userInput');
+    const sendBtn = document.getElementById('sendBtn');
+    const chatMessages = document.getElementById('chatMessages');
+    
+    // Toggle chat window
+    chatButton.addEventListener('click', function() {
+        chatWindow.classList.add('active');
+        chatButton.style.display = 'none';
+        
+        // Add initial greeting if it's the first time opening
+        if (chatMessages.children.length === 0) {
+            addMessage('bot', 'Hello! I\'m Kuldeep\'s AI assistant. How can I help you learn more about his experience and skills?');
+        }
+    });
+    
+    // Close chat window
+    closeChat.addEventListener('click', function() {
+        chatWindow.classList.remove('active');
+        
+        // Use a delay to match the transition duration
+        setTimeout(function() {
+            chatButton.style.display = 'flex';
+        }, 300);
+    });
+    
+    // Send message
+    function sendMessage() {
+        const message = userInput.value.trim();
+        if (message === '') return;
+        
+        // Add user message
+        addMessage('user', message);
+        userInput.value = '';
+        
+        // Add typing indicator
+        const typingIndicator = document.createElement('div');
+        typingIndicator.className = 'kuldeep-typing';
+        typingIndicator.innerHTML = '<span></span><span></span><span></span>';
+        chatMessages.appendChild(typingIndicator);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
+        // Simulate response (replace this with actual API call)
+        setTimeout(() => {
+            chatMessages.removeChild(typingIndicator);
+            
+            // Generate a mock response based on keywords
+            let response = "I'm sorry, I don't have specific information about that. Kuldeep is an AI/ML Engineer with expertise in Python, Machine Learning, Deep Learning, and Generative AI.";
+            
+            if (message.toLowerCase().includes('experience')) {
+                response = "Kuldeep is currently a Software Engineer at Arrk Solutions, building chatbots with OpenAI LLM and RAG models. He previously worked as an AI/ML Engineer at IIT Roorkee and as a Data Science Analyst at Arleven Studios.";
+            } else if (message.toLowerCase().includes('skill') || message.toLowerCase().includes('technology')) {
+                response = "Kuldeep's skills include Python, Machine Learning, Deep Learning, Reinforcement Learning, Generative AI, LLMs, RAG, SQL, TensorFlow, PyTorch, NLP, and AWS.";
+            } else if (message.toLowerCase().includes('education')) {
+                response = "Kuldeep has a B.Tech in Mechanical Engineering from Govt. Engineering College of Bikaner, Rajasthan Technical University (2017-2021).";
+            } else if (message.toLowerCase().includes('project')) {
+                response = "Kuldeep has worked on several projects including developing the 'JustAsk' chatbot, Dynamic Traffic Signal Control using reinforcement learning (published research), Boarding Alighting Counting in Transit Vehicles, and Deep Learning for Public Transit Crowding Prediction.";
+            } else if (message.toLowerCase().match(/hi|hello|hey/)) {
+                response = "Hello! I'm Kuldeep's AI assistant. How can I help you learn more about his experience and skills?";
+            }
+            
+            addMessage('bot', response);
+        }, 1500);
+    }
+    
+    // Add message to chat
+    function addMessage(type, text) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `kuldeep-message ${type}`;
+        
+        const avatar = document.createElement('div');
+        avatar.className = 'kuldeep-message-avatar';
+        avatar.innerHTML = type === 'bot' ? '<i class="fas fa-robot"></i>' : '<i class="fas fa-user"></i>';
+        
+        const content = document.createElement('div');
+        content.className = 'kuldeep-message-content';
+        content.textContent = text;
+        
+        messageDiv.appendChild(avatar);
+        messageDiv.appendChild(content);
+        
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    // Event listeners
+    sendBtn.addEventListener('click', sendMessage);
+    userInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+});
+</script> 

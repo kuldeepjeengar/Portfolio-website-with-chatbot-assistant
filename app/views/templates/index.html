@@ -1,0 +1,480 @@
+{% extends "base.html" %}
+
+{% block title %}Kuldeep Jeengar - AI/ML Engineer Portfolio{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <div class="hero-text">
+            <p class="hero-greeting">👋 Hello, I'm</p>
+            <h1>Kuldeep <span class="highlight">Jeengar</span></h1>
+            <p>Software Engineer with expertise in Python, Machine Learning, Deep Learning, Reinforcement Learning, and Generative AI.</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="cta-button primary">View Projects</a>
+                <a href="#contact" class="cta-button secondary">Contact Me</a>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/kuldeepjeengar" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/kuldeep-jeengar" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://novypro.com/kuldeepjeengar" target="_blank" aria-label="NovyPro"><i class="fas fa-chart-bar"></i></a>
+                <a href="mailto:kuldeepjeengar50@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="{{ url_for('static', filename='images/kuldeep-profile.jpg') }}" alt="Kuldeep Jeengar" class="profile-image">
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about section">
+    <div class="container">
+        <div class="section-subtitle">About Me</div>
+        <h2 class="section-title">Who I Am</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Kuldeep Jeengar" onerror="this.src='https://via.placeholder.com/500x600?text=Kuldeep+Jeengar'">
+            </div>
+            <div class="about-text">
+                <h3>AI/ML Engineer based in Navi Mumbai</h3>
+                <p>I'm a Software Engineer with expertise in Python, Machine Learning, Deep Learning, Reinforcement Learning, and Generative AI. Skilled in data cleaning, statistical analysis, and visualization using Tableau, Power BI, and SQL.</p>
+                <p>Experienced in building and deploying advanced machine learning models, including Large Language Models (LLMs), to extract actionable insights from complex datasets. Proficient in developing AI-driven solutions to enhance business decision-making and optimize processes.</p>
+                
+                <div class="skills">
+                    <span>Python</span>
+                    <span>Machine Learning</span>
+                    <span>Deep Learning</span>
+                    <span>LLMs</span>
+                    <span>RAG</span>
+                    <span>SQL</span>
+                    <span>TensorFlow</span>
+                    <span>PyTorch</span>
+                    <span>NLP</span>
+                    <span>AWS</span>
+                </div>
+                
+                <div class="about-info">
+                    <div class="info-item">
+                        <h4>Email:</h4>
+                        <p>kuldeepjeengar50@gmail.com</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Phone:</h4>
+                        <p>+91 9649880127</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Location:</h4>
+                        <p>Navi Mumbai, India</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="experience section">
+    <div class="container">
+        <div class="text-center">
+            <div class="section-subtitle">My Journey</div>
+            <h2 class="section-title">Professional Experience</h2>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>10/2024 - Present</span>
+                </div>
+                <div class="timeline-content">
+                    <h3>Software Engineer</h3>
+                    <h4>Arrk Solutions Pvt Ltd, Mumbai</h4>
+                    <ul>
+                        <li>Led end-to-end development of "JustAsk (Barbour ABI)" chatbot using OpenAI LLM, RAG models, and multiple language models (Mistral, LLaMA)</li>
+                        <li>Integrated request inspector with Marimo dashboard for real-time analytics through interactive donut charts and bar graphs</li>
+                        <li>Implemented database logging for comprehensive interaction tracking</li>
+                        <li>Architected robust backend API system with dynamic features including multi-model selection, document processing (PDF, TXT, MD), and analytics dashboard</li>
+                        <li>Delivered actionable insights through data visualization, optimized response times, and enhanced monitoring capabilities</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>10/2023 - 08/2024</span>
+                </div>
+                <div class="timeline-content">
+                    <h3>Project Associate (AI/ML Engineer)</h3>
+                    <h4>Indian Institute of Technology Roorkee (IIT Roorkee)</h4>
+                    <div class="project-highlight">
+                        <h5>Project 1: Dynamic Traffic Signal Control for Heterogeneous Traffic Conditions</h5>
+                        <ul>
+                            <li>Engineered hybrid traffic control system merging Max Pressure & PPO reinforcement learning, achieving 70-82% delay reduction & 29-41% faster queue clearance</li>
+                            <li>Validated performance through rigorous statistical analysis using real-world traffic data</li>
+                            <li>Published in Expert Systems with Applications, June 2024</li>
+                            <li><a href="https://doi.org/10.1016/j.eswa.2024.124416" target="_blank">Publication Link</a> | <a href="https://ieeexplore.ieee.org/document/10677074" target="_blank">IEEE Link</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-highlight">
+                        <h5>Project 2: Boarding Alighting Counting in Transit Vehicles under Crowded Conditions</h5>
+                        <ul>
+                            <li>Fine-tuned YOLOv8 model on faces using bus CCTV camera surveillance data</li>
+                            <li>Enhanced Root Bytrecker for bi-directional passenger counting across regions, achieving 90% precision even in crowded scenarios</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-highlight">
+                        <h5>Project 3: Deep Learning Model for Public Transit Crowding Prediction</h5>
+                        <ul>
+                            <li>Built LSTM deep learning model with ETM data for transit crowding prediction (85% accuracy)</li>
+                            <li>Implemented Affinity Propagation for route optimization</li>
+                            <li>Stack: Python, Time Series Analysis, LSTM neural nets & clustering algorithms</li>
+                            <li>Developed scalable real-time crowding APIs integrated with transit routing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>08/2022 - 07/2023</span>
+                </div>
+                <div class="timeline-content">
+                    <h3>Data Science Analyst</h3>
+                    <h4>Arleven Studios, Jodhpur</h4>
+                    <ul>
+                        <li>Contributed to the JustPlay app as a Data Analyst by extracting, transforming, and analyzing financial data</li>
+                        <li>Utilized SQL, Power BI, Excel, Python, and Tableau to provide actionable insights and improve efficiency</li>
+                        <li>Created visualizations and reports to communicate findings, optimize financial processes, and support strategic decision-making</li>
+                        <li>Aligned analysis with project goals and stakeholder requirements</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="skills-section section">
+    <div class="container">
+        <div class="text-center">
+            <div class="section-subtitle">My Expertise</div>
+            <h2 class="section-title">Skills & Technologies</h2>
+        </div>
+        
+        <div class="skills-container">
+            <div class="skills-category">
+                <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h4>Python</h4>
+                            <p>95%</p>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skills-category">
+                <h3><i class="fas fa-brain"></i> Machine Learning & Deep Learning</h3>
+                <div class="skill-tags">
+                    <span>Pandas</span>
+                    <span>NumPy</span>
+                    <span>Scikit-learn</span>
+                    <span>Keras</span>
+                    <span>TensorFlow</span>
+                    <span>OpenCV</span>
+                    <span>Statsmodels</span>
+                    <span>BeautifulSoup</span>
+                    <span>PyTorch</span>
+                    <span>Selenium</span>
+                    <span>SciPy</span>
+                    <span>XGBoost</span>
+                </div>
+            </div>
+            
+            <div class="skills-category">
+                <h3><i class="fas fa-chart-bar"></i> Data Visualization</h3>
+                <div class="skill-tags">
+                    <span>Matplotlib</span>
+                    <span>Seaborn</span>
+                    <span>Plotly</span>
+                    <span>Tableau</span>
+                    <span>PowerBI</span>
+                </div>
+            </div>
+            
+            <div class="skills-category">
+                <h3><i class="fas fa-database"></i> Database Technologies</h3>
+                <div class="skill-tags">
+                    <span>MySQL</span>
+                    <span>MsSQL</span>
+                </div>
+            </div>
+            
+            <div class="skills-category">
+                <h3><i class="fas fa-comment-alt"></i> Natural Language Processing</h3>
+                <div class="skill-tags">
+                    <span>NLTK</span>
+                    <span>TextBlob</span>
+                    <span>Spacy</span>
+                    <span>Pyphen</span>
+                    <span>Transformers</span>
+                </div>
+            </div>
+            
+            <div class="skills-category">
+                <h3><i class="fas fa-server"></i> Web Frameworks & Cloud</h3>
+                <div class="skill-tags">
+                    <span>Django</span>
+                    <span>Streamlit</span>
+                    <span>API Development</span>
+                    <span>Flask</span>
+                    <span>AWS</span>
+                    <span>Databricks</span>
+                </div>
+            </div>
+            
+            <div class="skills-category">
+                <h3><i class="fas fa-robot"></i> AI & Advanced Models</h3>
+                <div class="skill-tags">
+                    <span>Generative AI</span>
+                    <span>Large Language Models (LLM)</span>
+                    <span>RAG</span>
+                    <span>Reinforcement Learning</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Education Section -->
+<section id="education" class="education section">
+    <div class="container">
+        <div class="text-center">
+            <div class="section-subtitle">Academic Background</div>
+            <h2 class="section-title">Education</h2>
+        </div>
+        
+        <div class="education-card">
+            <div class="education-icon">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="education-content">
+                <h3>B.Tech in Mechanical Engineering</h3>
+                <h4>Govt. Engineering College Of Bikaner</h4>
+                <p>Rajasthan Technical University</p>
+                <span class="education-date">2017 - 2021</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="projects section">
+    <div class="container">
+        <div class="section-subtitle">My Recent Work</div>
+        <h2 class="section-title">Projects</h2>
+        
+        <div class="project-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="ml">Machine Learning</button>
+            <button class="filter-btn" data-filter="nlp">NLP</button>
+            <button class="filter-btn" data-filter="computer-vision">Computer Vision</button>
+            <button class="filter-btn" data-filter="reinforcement">Reinforcement Learning</button>
+        </div>
+        
+        <div class="projects-grid">
+            <!-- Project 1: Dynamic Traffic Signal Control -->
+            <div class="project-card" data-category="reinforcement ml">
+                <div class="project-img">
+                    <img src="{{ url_for('static', filename='images/projects/traffic-control.jpg') }}" alt="Traffic Signal Control" onerror="this.src='https://via.placeholder.com/600x400?text=Traffic+Signal+Control'">
+                </div>
+                <div class="project-content">
+                    <h3>Dynamic Traffic Signal Control</h3>
+                    <p>Hybrid traffic control system merging Max Pressure & PPO reinforcement learning, achieving 70-82% delay reduction & 29-41% faster queue clearance.</p>
+                    <div class="project-tags">
+                        <span>Reinforcement Learning</span>
+                        <span>Python</span>
+                        <span>SUMO</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/kuldeepjeengar/traffic-signal-control" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                        <a href="https://doi.org/10.1016/j.eswa.2024.124416" target="_blank" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Publication
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2: Conversational AI Chatbot -->
+            <div class="project-card" data-category="nlp ml">
+                <div class="project-img">
+                    <img src="{{ url_for('static', filename='images/projects/chatbot.jpg') }}" alt="Conversational AI Chatbot" onerror="this.src='https://via.placeholder.com/600x400?text=Conversational+AI+Chatbot'">
+                </div>
+                <div class="project-content">
+                    <h3>Conversational AI Chatbot</h3>
+                    <p>Built an interactive chatbot with Hugging Face models, deployed with Streamlit for real-time conversations and query answering.</p>
+                    <div class="project-tags">
+                        <span>NLP</span>
+                        <span>Hugging Face</span>
+                        <span>Streamlit</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/kuldeepjeengar/conversational-ai-chatbot" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3: Lip Expression Synchronization -->
+            <div class="project-card" data-category="computer-vision ml">
+                <div class="project-img">
+                    <img src="{{ url_for('static', filename='images/projects/lip-sync.jpg') }}" alt="Lip Sync" onerror="this.src='https://via.placeholder.com/600x400?text=Lip+Synchronization'">
+                </div>
+                <div class="project-content">
+                    <h3>Lip Expression Synchronization</h3>
+                    <p>Implementation of Way2Lip model for realistic lip synchronization with face detection capabilities for improved video dubbing.</p>
+                    <div class="project-tags">
+                        <span>Computer Vision</span>
+                        <span>Deep Learning</span>
+                        <span>Way2Lip</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/kuldeepjeengar/lip-sync-way2lip" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 4: Transit Passenger Counting -->
+            <div class="project-card" data-category="computer-vision ml">
+                <div class="project-img">
+                    <img src="{{ url_for('static', filename='images/projects/passenger-counting.jpg') }}" alt="Passenger Counting" onerror="this.src='https://via.placeholder.com/600x400?text=Passenger+Counting'">
+                </div>
+                <div class="project-content">
+                    <h3>Transit Passenger Counting System</h3>
+                    <p>Fine-tuned YOLOv8 model for face detection in crowded bus environments using CCTV data. Enhanced Root Bytrecker for bi-directional passenger counting.</p>
+                    <div class="project-tags">
+                        <span>Computer Vision</span>
+                        <span>YOLO</span>
+                        <span>Object Tracking</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/kuldeepjeengar/transit-passenger-counting" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 5: Transit Crowding Prediction -->
+            <div class="project-card" data-category="ml">
+                <div class="project-img">
+                    <img src="{{ url_for('static', filename='images/projects/crowding-prediction.jpg') }}" alt="Crowding Prediction" onerror="this.src='https://via.placeholder.com/600x400?text=Crowding+Prediction'">
+                </div>
+                <div class="project-content">
+                    <h3>Public Transit Crowding Prediction</h3>
+                    <p>LSTM deep learning model using ETM data for transit crowding prediction with 85% accuracy. Implemented Affinity Propagation for route optimization.</p>
+                    <div class="project-tags">
+                        <span>Time Series</span>
+                        <span>LSTM</span>
+                        <span>Clustering</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/kuldeepjeengar/transit-crowding-prediction" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact section">
+    <div class="container">
+        <div class="text-center">
+            <div class="section-subtitle">Get In Touch</div>
+            <h2 class="section-title">Contact Me</h2>
+            <p class="contact-desc">I'm interested in freelance opportunities and full-time positions in AI/ML engineering. If you have a project that needs my expertise or want to discuss potential opportunities, don't hesitate to contact me.</p>
+        </div>
+        
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Location</h3>
+                        <p>Navi Mumbai, India</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h3>Email</h3>
+                        <p>kuldeepjeengar50@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>+91 9649880127</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form-container">
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder="Subject">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Add additional scripts here if needed
+</script>
+{% endblock %}

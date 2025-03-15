@@ -1,0 +1,92 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Flask
+instance/
+.webassets-cache
+.env
+.flaskenv
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+logs/
+*.log
+
+# IDE/Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+
+# Node/Frontend
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+.npm
+.yarn-integrity
+
+# Environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Debugging/Tests
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Media/Uploads
+uploads/
+media/temp/*
+!media/temp/.gitkeep
+
+# Compiled JavaScript
+app/views/static/js/*.min.js
+
+# Compiled CSS
+app/views/static/css/*.min.css
+
+# Cache files
+.sass-cache/
+*.css.map
+*.js.map
+
+# Cleanup commands
+rm -rf __pycache__/
+rm -rf .pytest_cache/
+rm -rf .vscode/
+rm -rf .idea/
+rm -f .DS_Store
+rm -f Thumbs.db 
